@@ -1,0 +1,18 @@
+# Ignore everything:
+/*
+!.gitignore
+
+# Allow neovim config:
+!nvim
+
+# Allow fish config:
+!fish
+fish/*
+!fish/config.fish
+
+# Allow oh my fish:
+!omf
+omf/*
+!omf/theme
+!omf/bundle
+
