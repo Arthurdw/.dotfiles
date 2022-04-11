@@ -54,8 +54,23 @@ return packer.startup(
         -- Theme
         use "shaunsingh/moonlight.nvim"
 
+        -- Treesitter
+        use {
+            "nvim-treesitter/nvim-treesitter",
+            run = ":TSUpdate"
+        }
+
         -- Formatting
         use "sbdchd/neoformat"
+
+        -- Commenting
+        use {
+            "numToStr/Comment.nvim",
+            config = function()
+                require("Comment").setup()
+            end
+        }
+        use "JoosepAlviste/nvim-ts-context-commentstring"
 
         -- Status bar
         use "vim-airline/vim-airline"
