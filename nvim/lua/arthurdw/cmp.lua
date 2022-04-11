@@ -53,6 +53,10 @@ cmp.setup(
             {
                 {name = "nvim_lsp"},
                 {name = "ultisnips"},
+                {name = "crates"},
+                {name = "cmp_tabnine"},
+                {name = "copilot"},
+                {name = "cmdline"},
                 {name = "buffer"},
                 {name = "path"}
             }
@@ -92,6 +96,10 @@ cmp.setup(
                     ultisnips = "[Snippet]",
                     buffer = "[Buffer]",
                     path = "[Path]"
+                    crates = "[Crates.io]",
+                    copilot = "[Copilot]",
+                    cmdline = "[Cmdline]",
+                    cmp_tabnine = "[TabNine]",
                 })[entry.source.name]
                 return vim_item
             end

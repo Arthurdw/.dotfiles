@@ -72,6 +72,26 @@ return packer.startup(
         use "hrsh7th/cmp-cmdline"
         use "hrsh7th/nvim-cmp"
 
+        -- Crates.io completion
+        use {
+            "saecki/crates.nvim",
+            event = {"BufRead Cargo.toml"},
+            requires = {{"nvim-lua/plenary.nvim"}},
+            config = function()
+                require("crates").setup()
+            end
+        }
+
+        -- Tabnine completion
+        use {
+            "tzachar/cmp-tabnine",
+            run = "./install.sh"
+        }
+
+        -- Copilot completion
+        use {"github/copilot.vim"}
+        use {"hrsh7th/cmp-copilot"}
+
         -- Snippet engine
         use "SirVer/ultisnips"
         use "quangnguyen30192/cmp-nvim-ultisnips"
