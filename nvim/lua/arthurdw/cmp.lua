@@ -95,11 +95,11 @@ cmp.setup(
                     nvim_lsp = "[LSP]",
                     ultisnips = "[Snippet]",
                     buffer = "[Buffer]",
-                    path = "[Path]"
+                    path = "[Path]",
                     crates = "[Crates.io]",
                     copilot = "[Copilot]",
                     cmdline = "[Cmdline]",
-                    cmp_tabnine = "[TabNine]",
+                    cmp_tabnine = "[TabNine]"
                 })[entry.source.name]
                 return vim_item
             end

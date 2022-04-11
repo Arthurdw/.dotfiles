@@ -4,6 +4,7 @@
 
 # Allow neovim config:
 !nvim
+nvim/plugin/packer_compiled.lua
 
 # Allow fish config:
 !fish
