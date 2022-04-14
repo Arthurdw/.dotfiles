@@ -114,6 +114,12 @@ return packer.startup(
         -- Snippets
         use "honza/vim-snippets"
 
+        -- Live server for HTML, CSS, and JavaScript
+        use {
+            "turbio/bracey.vim",
+            run = "npm install --prefix server"
+        }
+
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if PACKER_BOOTSTRAP then
