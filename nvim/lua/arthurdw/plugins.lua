@@ -54,11 +54,14 @@ return packer.startup(
         -- Theme
         use "shaunsingh/moonlight.nvim"
 
+        -- Multiple cursors
+        use  'mg979/vim-visual-multi'
+
         -- Treesitter
-        -- use {
-        --     "nvim-treesitter/nvim-treesitter",
-        --     run = ":TSUpdate"
-        -- }
+        use {
+            "nvim-treesitter/nvim-treesitter",
+            run = ":TSUpdate"
+        }
 
         -- Formatting
         use "sbdchd/neoformat"
@@ -70,7 +73,7 @@ return packer.startup(
                 require("Comment").setup()
             end
         }
-        -- use "JoosepAlviste/nvim-ts-context-commentstring"
+        use "JoosepAlviste/nvim-ts-context-commentstring"
 
         -- Status bar
         use "vim-airline/vim-airline"
