@@ -48,25 +48,33 @@ return packer.startup(
         use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
         use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
 
+        -- General utility
+        use "tpope/vim-surround"
+        use "mg979/vim-visual-multi"
+        use "sbdchd/neoformat"
+        use "tpope/vim-repeat"
+        use "tpope/vim-speeddating"
+        use "svermeulen/vim-easyclip"
+        use "godlygeek/tabular"
+        use "easymotion/vim-easymotion"
+
         -- Finding files
         use "nvim-telescope/telescope.nvim"
+        use "preservim/nerdtree"
         use "francoiscabrol/ranger.vim"
         use "rbgrouleff/bclose.vim"
 
         -- Theme
         use "shaunsingh/moonlight.nvim"
 
-        -- Multiple cursors
-        use "mg979/vim-visual-multi"
+        -- Git integration
+        use "airblade/vim-gitgutter"
 
         -- Treesitter
         use {
             "nvim-treesitter/nvim-treesitter",
             run = ":TSUpdate"
         }
-
-        -- Formatting
-        use "sbdchd/neoformat"
 
         -- Commenting
         use {
@@ -123,6 +131,19 @@ return packer.startup(
         use {
             "turbio/bracey.vim",
             run = "npm install --prefix server"
+        }
+
+        -- Syntax checking
+        use "vim-syntastic/syntastic"
+
+        -- Discord presence
+        use "vimsence/vimsence"
+
+        -- Specific language plugins
+        -- Go
+        use {
+            "fatih/vim-go",
+            run = ":GoUpdateBinaries"
         }
 
         -- Automatically set up your configuration after cloning packer.nvim

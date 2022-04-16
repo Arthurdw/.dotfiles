@@ -8,7 +8,7 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
-local opts = { noremap = true, silent = true }
+local opts = {noremap = true, silent = true}
 local km = vim.api.nvim_set_keymap
 
 -- Window navigation
@@ -24,7 +24,8 @@ km("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 km("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Explorer
-km("n", "<leader>e", ":RangerWorkingDirectory<CR>", opts)
+km("n", "<leader>e", ":NERDTree<CR>", opts)
+km("n", "<leader>r", ":RangerWorkingDirectory<CR>", opts)
 
 -- Navigate buffers
 km("n", "<S-l>", ":bnext<CR>", opts)
