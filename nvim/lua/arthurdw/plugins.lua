@@ -51,13 +51,13 @@ return packer.startup(
         -- Finding files
         use "nvim-telescope/telescope.nvim"
         use "francoiscabrol/ranger.vim"
-        use  'rbgrouleff/bclose.vim'
+        use "rbgrouleff/bclose.vim"
 
         -- Theme
         use "shaunsingh/moonlight.nvim"
 
         -- Multiple cursors
-        use  'mg979/vim-visual-multi'
+        use "mg979/vim-visual-multi"
 
         -- Treesitter
         use {
