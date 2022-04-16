@@ -50,6 +50,8 @@ return packer.startup(
 
         -- Finding files
         use "nvim-telescope/telescope.nvim"
+        use "francoiscabrol/ranger.vim"
+        use  'rbgrouleff/bclose.vim'
 
         -- Theme
         use "shaunsingh/moonlight.nvim"
