@@ -1,6 +1,13 @@
 package config
+package https://github.com/acomagu/fish-async-prompt
+package https://github.com/andreiborisov/sponge
+package https://github.com/jethrokuan/fzf
+package https://github.com/jorgebucaran/autopair.fish
+package https://github.com/jorgebucaran/replay.fish
+package https://github.com/markcial/upto
 package license
+package pj
 package spark
 package z
+theme cbjohnson
 theme default
-theme lolfish
