@@ -36,6 +36,7 @@ if status is-interactive
     _ref gmc 'gitmoji -c'
     _ref ghs 'git status'
     _ref ghp 'git push'
+    _ref ghpu 'git pull'
     _ref ghc 'git commit -m'
     _ref gha 'git add .'
     _ref gmca 'gha && gmc'
