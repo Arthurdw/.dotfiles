@@ -55,6 +55,9 @@ if status is-interactive
     _ref ghtd 'ght -d'
     _ref ghbc 'git fetch -p && git branch -vv | awk "/: gone]/{print $1}" | xargs git branch -d'
 
+    # Copy aliases
+    _ref copy 'xclip -selection clipboard'
+
     # Key counter aliases (https://github.com/arthurdw/keycounter)
     alias __sortCSVBySecondValue="sort -n -k 2 -t ','"
     _ref kc '__sortCSVBySecondValue /etc/key-counter/data.csv'
