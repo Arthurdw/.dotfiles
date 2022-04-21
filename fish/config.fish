@@ -31,6 +31,7 @@ if status is-interactive
     # General aliases
     _ref cls clear
     _ref py python3
+    _ref ip 'ip -c'
 
     # Git related aliases
     _ref gmc 'gitmoji -c'
