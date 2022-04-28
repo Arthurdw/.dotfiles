@@ -58,6 +58,7 @@ if status is-interactive
 
     # Copy aliases
     _ref copy 'xclip -selection clipboard'
+    _ref cpwd 'pwd | copy'
 
     # Key counter aliases (https://github.com/arthurdw/keycounter)
     alias __sortCSVBySecondValue="sort -n -k 2 -t ','"
