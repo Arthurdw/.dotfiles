@@ -20,4 +20,4 @@ omf/*
 # Ranger config
 !ranger
 ranger/*
-!ranger/rifle.conf
+!ranger/rc.conf
