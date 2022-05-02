@@ -17,3 +17,7 @@ omf/*
 !omf/theme
 !omf/bundle
 
+# Ranger config
+!ranger
+ranger/*
+!ranger/rifle.conf
