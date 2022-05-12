@@ -44,38 +44,39 @@ packer.init {
 return packer.startup(
     function(use)
         -- General plugin management
-        use "wbthomason/packer.nvim" -- Have packer manage itself
-        use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-        use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
+        use {"wbthomason/packer.nvim"} -- Have packer manage itself
+        use {"nvim-lua/popup.nvim"} -- An implementation of the Popup API from vim in Neovim
+        use {"nvim-lua/plenary.nvim"} -- Useful lua functions used by lots of plugins
 
         -- General utility
-        use "tpope/vim-surround"
-        use "mg979/vim-visual-multi"
-        use "sbdchd/neoformat"
-        use "tpope/vim-repeat"
-        use "tpope/vim-speeddating"
-        use "svermeulen/vim-easyclip"
-        use "godlygeek/tabular"
-        use "easymotion/vim-easymotion"
+        use {"tpope/vim-surround"}
+        use {"mg979/vim-visual-multi"}
+        use {"sbdchd/neoformat"}
+        use {"tpope/vim-repeat"}
+        use {"tpope/vim-speeddating"}
+        use {"svermeulen/vim-easyclip"}
+        use {"godlygeek/tabular"}
+        use {"easymotion/vim-easymotion"}
 
         -- Finding files
-        use "nvim-telescope/telescope.nvim"
-        use "preservim/nerdtree"
-        use "francoiscabrol/ranger.vim"
-        use "rbgrouleff/bclose.vim"
+        use {"nvim-telescope/telescope.nvim"}
+        use {"preservim/nerdtree"}
+        use {"francoiscabrol/ranger.vim"}
+        use {"rbgrouleff/bclose.vim"}
 
         -- Theme
-        use "shaunsingh/moonlight.nvim"
-        use "p00f/nvim-ts-rainbow"
+        use {"shaunsingh/moonlight.nvim"}
+        use {"p00f/nvim-ts-rainbow"}
 
         -- Git integration
-        use "airblade/vim-gitgutter"
+        use {"airblade/vim-gitgutter"}
 
         -- Treesitter
         use {
             "nvim-treesitter/nvim-treesitter",
             run = ":TSUpdate"
         }
+        use {"nvim-treesitter/playground"}
 
         -- Commenting
         use {
@@ -84,26 +85,26 @@ return packer.startup(
                 require("Comment").setup()
             end
         }
-        use "JoosepAlviste/nvim-ts-context-commentstring"
+        use {"JoosepAlviste/nvim-ts-context-commentstring"}
 
         -- Status bar
-        use "vim-airline/vim-airline"
-        use "vim-airline/vim-airline-themes"
+        use {"vim-airline/vim-airline"}
+        use {"vim-airline/vim-airline-themes"}
 
         -- Emmet support
-        use "mattn/emmet-vim"
+        use {"mattn/emmet-vim"}
 
         -- Completion
-        use "hrsh7th/cmp-buffer"
-        use "hrsh7th/cmp-path"
-        use "hrsh7th/cmp-cmdline"
-        use "hrsh7th/nvim-cmp"
+        use {"hrsh7th/cmp-buffer"}
+        use {"hrsh7th/cmp-path"}
+        use {"hrsh7th/cmp-cmdline"}
+        use {"hrsh7th/nvim-cmp"}
 
         -- LSP
-        use "neovim/nvim-lspconfig"
-        use "hrsh7th/cmp-nvim-lsp"
-        use "williamboman/nvim-lsp-installer"
-        use "tamago324/nlsp-settings.nvim"
+        use {"neovim/nvim-lspconfig"}
+        use {"hrsh7th/cmp-nvim-lsp"}
+        use {"williamboman/nvim-lsp-installer"}
+        use {"tamago324/nlsp-settings.nvim"}
 
         -- Crates.io completion
         use {
@@ -126,11 +127,11 @@ return packer.startup(
         use {"hrsh7th/cmp-copilot"}
 
         -- Snippet engine
-        use "SirVer/ultisnips"
-        use "quangnguyen30192/cmp-nvim-ultisnips"
+        use {"SirVer/ultisnips"}
+        use {"quangnguyen30192/cmp-nvim-ultisnips"}
 
         -- Snippets
-        use "honza/vim-snippets"
+        use {"honza/vim-snippets"}
 
         -- Live server for HTML, CSS, and JavaScript
         use {
@@ -139,10 +140,10 @@ return packer.startup(
         }
 
         -- Syntax checking
-        use "vim-syntastic/syntastic"
+        use {"vim-syntastic/syntastic"}
 
         -- Discord presence
-        use "vimsence/vimsence"
+        use {"vimsence/vimsence"}
 
         -- Specific language plugins
         -- Go
