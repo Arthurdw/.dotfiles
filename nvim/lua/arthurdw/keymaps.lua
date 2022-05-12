@@ -31,6 +31,7 @@ km("n", "<leader>r", ":RangerWorkingDirectory<CR>", opts)
 km("n", "<S-l>", ":bnext<CR>", opts)
 km("n", "<S-h>", ":bprevious<CR>", opts)
 km("n", "<leader>c", ":Bdelete<CR>", opts)
+km("n", "<leader>cc", ":Bdelete!<CR>", opts)
 
 -- Move text up and down
 km("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
