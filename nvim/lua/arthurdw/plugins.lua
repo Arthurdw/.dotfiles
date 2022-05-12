@@ -61,9 +61,14 @@ return packer.startup(
 
         -- Finding files
         use {"nvim-telescope/telescope.nvim"}
-        use {"preservim/nerdtree"}
         use {"francoiscabrol/ranger.vim"}
         use {"rbgrouleff/bclose.vim"}
+        use {
+            "kyazdani42/nvim-tree.lua",
+            requires = {
+                "kyazdani42/nvim-web-devicons" -- optional, for file icon
+            }
+        }
 
         -- Theme
         use {"shaunsingh/moonlight.nvim"}

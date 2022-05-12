@@ -24,7 +24,7 @@ km("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 km("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Explorer
-km("n", "<leader>e", ":NERDTree<CR>", opts)
+km("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 km("n", "<leader>r", ":RangerWorkingDirectory<CR>", opts)
 
 -- Navigate buffers
