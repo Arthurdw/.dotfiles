@@ -51,3 +51,9 @@ km("x", "J", ":move '>+1<CR>gv-gv", opts)
 km("x", "K", ":move '<-2<CR>gv-gv", opts)
 km("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 km("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-- Terminal
+km("n", "<leader>tn", ":lua _NODE_TOGGLE()<CR>", opts)
+km("n", "<leader>tc", ":lua _NCDU_TOGGLE()<CR>", opts)
+km("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>", opts)
+km("n", "<leader>tp", ":lua _PYTHON_TOGGLE()<CR>", opts)

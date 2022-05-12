@@ -58,6 +58,7 @@ return packer.startup(
         use {"godlygeek/tabular"}
         use {"easymotion/vim-easymotion"}
         use {"windwp/nvim-autopairs"}
+        use {"akinsho/toggleterm.nvim"}
 
         -- Finding files
         use {"nvim-telescope/telescope.nvim"}
