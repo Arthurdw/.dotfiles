@@ -66,6 +66,7 @@ return packer.startup(
 
         -- Theme
         use "shaunsingh/moonlight.nvim"
+        use "p00f/nvim-ts-rainbow"
 
         -- Git integration
         use "airblade/vim-gitgutter"
