@@ -96,6 +96,11 @@ return packer.startup(
         -- Status bar
         use {"vim-airline/vim-airline"}
         use {"vim-airline/vim-airline-themes"}
+        use {
+            "akinsho/bufferline.nvim",
+            requires = "kyazdani42/nvim-web-devicons"
+        }
+        use {"moll/vim-bbye"}
 
         -- Emmet support
         use {"mattn/emmet-vim"}
