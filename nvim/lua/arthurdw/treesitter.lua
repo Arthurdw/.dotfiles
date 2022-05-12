@@ -37,5 +37,8 @@ require "nvim-treesitter.configs".setup {
             goto_node = "<cr>",
             show_help = "?"
         }
+    },
+    autopairs = {
+        enable = true
     }
 }
