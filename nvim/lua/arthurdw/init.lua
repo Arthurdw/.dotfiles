@@ -10,3 +10,8 @@ require("arthurdw.bufferline")
 require("arthurdw.toggleterm")
 require("arthurdw.refactoring")
 require("arthurdw.renamer")
+require("arthurdw.treesitter-context")
+
+-- setups
+require("neoscroll").setup()
+require("nvim-lastplace").setup {}

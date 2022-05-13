@@ -83,6 +83,44 @@ return packer.startup(
                 end
             end
         }
+        use {"glepnir/dashboard-nvim"}
+        use {"karb94/neoscroll.nvim"}
+        use {
+            "folke/zen-mode.nvim",
+            config = function()
+                require("zen-mode").setup {}
+            end
+        }
+        use {"mizlan/iswap.nvim"}
+        use {"haringsrob/nvim_context_vt"}
+        use {"ethanholz/nvim-lastplace"}
+        use {
+            "abecodes/tabout.nvim",
+            config = function()
+                require("tabout").setup {
+                    tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+                    backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
+                    act_as_tab = true, -- shift content if tab out is not possible
+                    act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+                    default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+                    default_shift_tab = "<C-d>", -- reverse shift default action,
+                    enable_backwards = true, -- well ...
+                    completion = true, -- if the tabkey is used in a completion pum
+                    tabouts = {
+                        {open = "'", close = "'"},
+                        {open = '"', close = '"'},
+                        {open = "`", close = "`"},
+                        {open = "(", close = ")"},
+                        {open = "[", close = "]"},
+                        {open = "{", close = "}"}
+                    },
+                    ignore_beginning = true --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]],
+                    exclude = {} -- tabout will ignore these filetypes
+                }
+            end,
+            wants = {"nvim-treesitter"}, -- or require if not used so far
+            after = {"nvim-cmp"} -- if a completion plugin is using tabs load it before
+        }
 
         -- Finding files
         use {"nvim-telescope/telescope.nvim"}
@@ -96,11 +134,13 @@ return packer.startup(
         }
 
         -- Theme
-        use {"shaunsingh/moonlight.nvim"}
+        -- use {"shaunsingh/moonlight.nvim"}
+        use {"folke/tokyonight.nvim"}
         use {"p00f/nvim-ts-rainbow"}
 
         -- Git integration
         use {"airblade/vim-gitgutter"}
+        use {"f-person/git-blame.nvim"}
 
         -- Treesitter
         use {
@@ -108,6 +148,7 @@ return packer.startup(
             run = ":TSUpdate"
         }
         use {"nvim-treesitter/playground"}
+        use {"nvim-treesitter/nvim-treesitter-context"}
 
         -- Commenting
         use {
@@ -183,6 +224,23 @@ return packer.startup(
         use {"vimsence/vimsence"}
 
         -- Specific language plugins
+        -- Shared
+        use {
+            "bennypowers/nvim-regexplainer",
+            config = function()
+                require "regexplainer".setup()
+            end,
+            requires = {
+                "nvim-treesitter/nvim-treesitter",
+                "MunifTanjim/nui.nvim"
+            }
+        }
+        use {
+            "rcarriga/vim-ultest",
+            requires = {"vim-test/vim-test"},
+            run = ":UpdateRemotePlugins"
+        }
+
         -- Go
         use {
             "fatih/vim-go",
@@ -194,6 +252,9 @@ return packer.startup(
             "iamcco/markdown-preview.nvim",
             run = "cd app && yarn install"
         }
+
+        -- HTML etc
+        use {"windwp/nvim-ts-autotag"}
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins

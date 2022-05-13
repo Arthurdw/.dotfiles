@@ -2,7 +2,7 @@
 set exrc
 
 " Color scheme
-colorscheme moonlight
+colorscheme tokyonight " moonlight"
 " Enable the following line if you want to use your terminal bg
 " highlight Normal guibg=None
 
