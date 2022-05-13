@@ -11,6 +11,9 @@
 local opts = {noremap = true, silent = true}
 local km = vim.api.nvim_set_keymap
 
+-- File saving
+km("i", "jj", "<ESC>:w<CR>", opts)
+
 -- Window navigation
 km("n", "<C-h>", "<C-w>h", opts)
 km("n", "<C-j>", "<C-w>j", opts)
@@ -62,3 +65,7 @@ km("n", "<leader>tp", ":lua _PYTHON_TOGGLE()<CR>", opts)
 km("i", "<F2>", '<cmd>lua require("renamer").rename()<cr>', {noremap = true, silent = true})
 km("n", "<leader>rn", '<cmd>lua require("renamer").rename()<cr>', {noremap = true, silent = true})
 km("v", "<leader>rn", '<cmd>lua require("renamer").rename()<cr>', {noremap = true, silent = true})
+
+-- Search
+km("n", "n", "nzzzv", opts)
+km("n", "N", "Nzzzv", opts)
