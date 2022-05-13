@@ -54,6 +54,7 @@ cmp.setup(
                 {name = "nvim_lsp"},
                 {name = "ultisnips"},
                 {name = "crates"},
+                {name = "nvim_lsp_signature_help"},
                 {name = "cmp_tabnine"},
                 {name = "copilot"},
                 {name = "cmdline"},
@@ -99,7 +100,8 @@ cmp.setup(
                     crates = "[Crates.io]",
                     copilot = "[Copilot]",
                     cmdline = "[Cmdline]",
-                    cmp_tabnine = "[TabNine]"
+                    cmp_tabnine = "[TabNine]",
+                    nvim_lsp_signature_help = "[Spellcheck]"
                 })[entry.source.name]
                 return vim_item
             end

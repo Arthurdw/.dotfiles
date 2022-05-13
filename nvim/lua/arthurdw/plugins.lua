@@ -59,6 +59,30 @@ return packer.startup(
         use {"easymotion/vim-easymotion"}
         use {"windwp/nvim-autopairs"}
         use {"akinsho/toggleterm.nvim"}
+        use {
+            "ThePrimeagen/refactoring.nvim",
+            requires = {
+                {"nvim-lua/plenary.nvim"},
+                {"nvim-treesitter/nvim-treesitter"}
+            }
+        }
+        use {
+            "filipdutescu/renamer.nvim",
+            branch = "master",
+            requires = {{"nvim-lua/plenary.nvim"}},
+            config = function()
+                local r = require "renamer"
+                r.setup {}
+                r._apply_workspace_edit = function(resp)
+                    local params = vim.lsp.util.make_position_params()
+                    local results_lsp, _ =
+                        vim.lsp.buf_request_sync(0, require "renamer.constants".strings.lsp_req_rename, params)
+                    local client_id = results_lsp and next(results_lsp) or nil
+                    local client = vim.lsp.get_client_by_id(client_id)
+                    require "vim.lsp.util".apply_workspace_edit(resp, client.offset_encoding)
+                end
+            end
+        }
 
         -- Finding files
         use {"nvim-telescope/telescope.nvim"}
@@ -117,6 +141,7 @@ return packer.startup(
         use {"hrsh7th/cmp-nvim-lsp"}
         use {"williamboman/nvim-lsp-installer"}
         use {"tamago324/nlsp-settings.nvim"}
+        use {"hrsh7th/cmp-nvim-lsp-signature-help"}
 
         -- Crates.io completion
         use {
