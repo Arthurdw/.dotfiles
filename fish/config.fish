@@ -1,3 +1,8 @@
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+set -gx GOPATH "$HOME/go"
+
+set -gx PATH "$PATH:$GOROOT/bin:$GOPATH/bin:$PNPM_HOME"
+
 if status is-interactive
     # Gets executed on shell startup
     function fish_greeting
@@ -84,5 +89,3 @@ if status is-interactive
     set -x EDITOR nvim
 end
 
-set -gx PNPM_HOME "/home/arthoor/.local/share/pnpm"
-set -gx PATH "$PNPM_HOME" $PATH

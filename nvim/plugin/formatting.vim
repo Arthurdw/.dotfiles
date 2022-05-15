@@ -7,6 +7,6 @@ endfun
 augroup FMT
     autocmd!
     autocmd BufWritePre * :call TrimWhitespace()
-    autocmd BufWritePre * silent! Neoformat
+    autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 augroup END
 

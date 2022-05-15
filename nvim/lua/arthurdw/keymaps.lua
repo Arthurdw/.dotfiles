@@ -8,7 +8,7 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 local km = vim.api.nvim_set_keymap
 
 -- File saving
@@ -33,7 +33,7 @@ km("n", "<leader>r", ":RangerWorkingDirectory<CR>", opts)
 -- Navigate buffers
 km("n", "<S-l>", ":bnext<CR>", opts)
 km("n", "<S-h>", ":bprevious<CR>", opts)
-km("n", "<leader>c", ":Bdelete<CR>", opts)
+km("n", "<leader>cc", ":Bdelete<CR>", opts)
 km("n", "<leader>C", ":Bdelete!<CR>", opts)
 
 -- Move text up and down
@@ -62,10 +62,15 @@ km("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>", opts)
 km("n", "<leader>tp", ":lua _PYTHON_TOGGLE()<CR>", opts)
 
 -- Renamer
-km("i", "<F2>", '<cmd>lua require("renamer").rename()<cr>', {noremap = true, silent = true})
-km("n", "<leader>rn", '<cmd>lua require("renamer").rename()<cr>', {noremap = true, silent = true})
-km("v", "<leader>rn", '<cmd>lua require("renamer").rename()<cr>', {noremap = true, silent = true})
+km("i", "<F2>", ':lua require("renamer").rename()<CR>', { noremap = true, silent = true })
+km("n", "<leader>rn", ':lua require("renamer").rename()<CR>', { noremap = true, silent = true })
+km("v", "<leader>rn", ':lua require("renamer").rename()<CR>', { noremap = true, silent = true })
 
 -- Search
 km("n", "n", "nzzzv", opts)
 km("n", "N", "Nzzzv", opts)
+
+-- Formatting
+km("n", "<leader>fm", ":lua vim.lsp.buf.formatting_sync()", opts)
+
+km("n", "<leader>sw", ":ISwapWith", opts)
