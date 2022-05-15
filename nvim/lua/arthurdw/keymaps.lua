@@ -1,6 +1,4 @@
--- Gravely inspired by https://github.com/LunarVim/Neovim-from-scratch
-
--- Modes refference
+-- Modes reference
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
@@ -36,11 +34,7 @@ km("n", "<S-h>", ":bprevious<CR>", opts)
 km("n", "<leader>cc", ":Bdelete<CR>", opts)
 km("n", "<leader>C", ":Bdelete!<CR>", opts)
 
--- Move text up and down
-km("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-km("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
--- Press jk to enter insert
+-- Press jk to enter normal mode
 km("i", "jk", "<ESC>", opts)
 
 -- Stay in indent mode
@@ -48,6 +42,8 @@ km("v", "<", "<gv", opts)
 km("v", ">", ">gv", opts)
 
 -- Move text up and down
+km("n", "<A-j>", "<Esc>:m .+1<CR>==g<Esc>", opts)
+km("n", "<A-k>", "<Esc>:m .-2<CR>==g<Esc>", opts)
 km("v", "<A-j>", ":m .+1<CR>==", opts)
 km("v", "<A-k>", ":m .-2<CR>==", opts)
 km("x", "J", ":move '>+1<CR>gv-gv", opts)
