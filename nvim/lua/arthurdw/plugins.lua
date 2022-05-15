@@ -121,6 +121,8 @@ return packer.startup(
             wants = {"nvim-treesitter"}, -- or require if not used so far
             after = {"nvim-cmp"} -- if a completion plugin is using tabs load it before
         }
+        use {"lukas-reineke/indent-blankline.nvim"}
+        use {"mfussenegger/nvim-dap"}
 
         -- Finding files
         use {"nvim-telescope/telescope.nvim"}

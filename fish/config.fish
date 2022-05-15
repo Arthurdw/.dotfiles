@@ -33,6 +33,9 @@ if status is-interactive
     _ref py python3
     _ref ip 'ip -c'
 
+    # Screenkey
+    _ref sk 'ps aux | grep [s]creenkey && killall screenkey || screenkey -s small --font-color RED --opacity 0.5 -t 1 &'
+
     # Git related aliases
     _ref gmc 'gitmoji -c'
     _ref ghs 'git status'
