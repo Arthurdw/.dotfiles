@@ -12,6 +12,9 @@ local km = vim.api.nvim_set_keymap
 -- File saving
 km("i", "jj", "<ESC>:w<CR>", opts)
 
+-- Replace all
+km("n", "S", ":%s//g<Left><Left>", opts)
+
 -- Window navigation
 km("n", "<C-h>", "<C-w>h", opts)
 km("n", "<C-j>", "<C-w>j", opts)

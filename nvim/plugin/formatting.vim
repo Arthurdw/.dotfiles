@@ -9,4 +9,3 @@ augroup FMT
     autocmd BufWritePre * :call TrimWhitespace()
     autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 augroup END
-

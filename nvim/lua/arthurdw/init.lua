@@ -11,7 +11,8 @@ require("arthurdw.toggleterm")
 require("arthurdw.refactoring")
 require("arthurdw.renamer")
 require("arthurdw.treesitter-context")
+require("arthurdw.indent-blankline")
 
 -- setups
 require("neoscroll").setup()
-require("nvim-lastplace").setup {}
+require("nvim-lastplace").setup({})
