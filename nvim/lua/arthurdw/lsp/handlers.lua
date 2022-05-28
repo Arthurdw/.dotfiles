@@ -97,7 +97,7 @@ end
 
 M.on_attach = function(client, bufnr)
 	-- Contains all providers that should be ignored for formatting.
-	local no_format = { "tsserver", "sumneko_lua" }
+	local no_format = { "tsserver", "sumneko_lua", "stylelint_lsp", "jsonls" }
 
 	if has_value(no_format, client.name) then
 		client.resolved_capabilities.document_formatting = false
