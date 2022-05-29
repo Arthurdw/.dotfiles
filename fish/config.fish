@@ -83,7 +83,7 @@ if status is-interactive
     _ref l 'ls -alFhS'
     _ref ll 'natls --long'
     _ref fire 'DISPLAY= cacafire'
-    _ref nd pnpm # I'm very lazy, yes typing that extra 2 characters does make a difference.
+    _ref pn pnpm # I'm very lazy, yes typing that extra 2 characters does make a difference.
 
     # Config aliases
     set FISH_PATH ~/.config/fish/config.fish
