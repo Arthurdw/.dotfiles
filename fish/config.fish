@@ -15,7 +15,7 @@ if status is-interactive
             alias $argv[1]=$argv[2..-1]
             abbr -a -g $argv[1] $argv[2..-1]
         else
-            echo "Error: _ref requires atleast two arguments. (call, mapped)" 1>&2
+            echo "Error: _ref requires at least two arguments. (call, mapped)" 1>&2
         end
     end
 
@@ -46,9 +46,11 @@ if status is-interactive
     _ref ghs 'git status'
     _ref ghp 'git push'
     _ref ghpu 'git pull'
-    _ref ghc 'git commit -m'
+    _ref ghm 'git merge'
+    _ref ghmm 'ghm main'
     _ref gha 'git add .'
     _ref gmca 'gha && gmc'
+    _ref gmcap 'gmca && ghp'
     _ref ghg 'git log --all --decorate --oneline --graph'
     _ref ghr 'git reflog'
     _ref ghca 'git commit --amend'
@@ -58,10 +60,12 @@ if status is-interactive
     _ref ghstp 'ghst pop'
     _ref ghstd 'ghst drop'
     _ref ghc 'git checkout'
+    _ref ghcm 'ghc main'
     _ref ghcr 'ghc --'
     _ref ght 'git tag'
     _ref ghta 'ght -a'
     _ref ghtd 'ght -d'
+    _ref ghbv 'git branch -val'
     _ref ghbc 'git fetch -p && git branch -vv | awk "/: gone]/{print $1}" | xargs git branch -d'
 
     # Copy aliases
@@ -88,4 +92,3 @@ if status is-interactive
     # Set default editor to neovim
     set -x EDITOR nvim
 end
-
