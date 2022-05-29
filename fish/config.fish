@@ -87,7 +87,10 @@ if status is-interactive
 
     # Config aliases
     set FISH_PATH ~/.config/fish/config.fish
+    set NVIM_PATH ~/.config/nvim/
     _ref efish 'vim $FISH_PATH && source $FISH_PATH'
+    _ref evim 'vim $NVIM_PATH +SessionLoad'
+
 
     # Set default editor to neovim
     set -x EDITOR nvim
