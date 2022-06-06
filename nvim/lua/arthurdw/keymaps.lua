@@ -29,7 +29,7 @@ km("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Explorer
 km("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-km("n", "<leader>r", ":RangerWorkingDirectory<CR>", opts)
+km("n", "<leader>ra", ":RangerWorkingDirectory<CR>", opts)
 
 -- Navigate buffers
 km("n", "<S-l>", ":bnext<CR>", opts)
@@ -59,11 +59,6 @@ km("n", "<leader>tn", ":lua _NODE_TOGGLE()<CR>", opts)
 km("n", "<leader>tc", ":lua _NCDU_TOGGLE()<CR>", opts)
 km("n", "<leader>th", ":lua _HTOP_TOGGLE()<CR>", opts)
 km("n", "<leader>tp", ":lua _PYTHON_TOGGLE()<CR>", opts)
-
--- Renamer
-km("i", "<F2>", ':lua require("renamer").rename()<CR>', { noremap = true, silent = true })
-km("n", "<leader>rn", ':lua require("renamer").rename()<CR>', { noremap = true, silent = true })
-km("v", "<leader>rn", ':lua require("renamer").rename()<CR>', { noremap = true, silent = true })
 
 -- Search
 km("n", "n", "nzzzv", opts)

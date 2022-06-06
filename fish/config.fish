@@ -60,6 +60,7 @@ if status is-interactive
     _ref ghstp 'ghst pop'
     _ref ghstd 'ghst drop'
     _ref ghc 'git checkout'
+    _ref ghcn 'ghc -b'
     _ref ghcm 'ghc main'
     _ref ghcr 'ghc --'
     _ref ght 'git tag'
@@ -89,7 +90,7 @@ if status is-interactive
     set FISH_PATH ~/.config/fish/config.fish
     set NVIM_PATH ~/.config/nvim/
     _ref efish 'vim $FISH_PATH && source $FISH_PATH'
-    _ref evim 'vim $NVIM_PATH +SessionLoad'
+    _ref evim 'vim $NVIM_PATH'
 
 
     # Set default editor to neovim

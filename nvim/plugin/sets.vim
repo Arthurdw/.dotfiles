@@ -1,3 +1,7 @@
+" Coral language implementation
+autocmd BufRead,BufNewFile *.coral set filetype=coral
+autocmd BufRead,BufNewFile *.coral set syntax=swift
+
 " Line
 set nu
 set relativenumber

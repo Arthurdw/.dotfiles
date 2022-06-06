@@ -8,8 +8,6 @@ require("arthurdw.autopairs")
 require("arthurdw.nvim-tree")
 require("arthurdw.bufferline")
 require("arthurdw.toggleterm")
-require("arthurdw.refactoring")
-require("arthurdw.renamer")
 require("arthurdw.treesitter-context")
 require("arthurdw.indent-blankline")
 
