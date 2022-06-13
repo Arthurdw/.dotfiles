@@ -92,6 +92,19 @@ if status is-interactive
     _ref efish 'vim $FISH_PATH && source $FISH_PATH'
     _ref evim 'vim $NVIM_PATH'
 
+    # Aliases for vm management
+    function vmwn
+        sudo systemctl start vmware-networks.path
+        sudo systemctl start vmware-networks.service
+    end
+
+    function vmwns
+        sudo systemctl stop vmware-networks.path
+        sudo systemctl stop vmware-networks.service
+    end
+    _ref vmmn 'sudo virsh net-start default'
+    _ref vmmns 'sudo virsh net-destroy default'
+
 
     # Set default editor to neovim
     set -x EDITOR nvim
