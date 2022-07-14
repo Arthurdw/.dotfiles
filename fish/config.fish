@@ -3,6 +3,7 @@ set -gx GOPATH "$HOME/go"
 
 set -gx PATH "$PATH:$GOROOT/bin:$GOPATH/bin:$PNPM_HOME"
 
+
 if status is-interactive
     # Gets executed on shell startup
     function fish_greeting
@@ -32,6 +33,7 @@ if status is-interactive
     _ref vi v
     _ref vim v
     _ref vimtutor 'v +Tutor'
+    _ref nv 'neovide'
 
     # General aliases
     _ref cls clear
@@ -105,6 +107,9 @@ if status is-interactive
     _ref vmmn 'sudo virsh net-start default'
     _ref vmmns 'sudo virsh net-destroy default'
 
+    # Xrandr shortcuts (output offs are because of my laptop which has a trackpad screen)
+    _ref scm 'xrandr --output HDMI-2 --auto --same-as eDP-1 && xrandr --output HDMI-1 --off'
+    _ref scsp 'xrandr --output HDMI-2 --auto --pos 1920x0 && xrandr --output HDMI-1 --off'
 
     # Set default editor to neovim
     set -x EDITOR nvim

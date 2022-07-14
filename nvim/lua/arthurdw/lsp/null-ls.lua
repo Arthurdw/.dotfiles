@@ -13,6 +13,7 @@ null_ls.setup({
 		formatting.prettier,
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
+		formatting.rustfmt,
 		diagnostics.flake8,
 		diagnostics.eslint,
 		code_actions.eslint,
