@@ -5,6 +5,7 @@
 # Allow neovim config:
 !nvim
 nvim/plugin/packer_compiled.lua
+!good-words.txt
 
 # Allow fish config:
 !fish

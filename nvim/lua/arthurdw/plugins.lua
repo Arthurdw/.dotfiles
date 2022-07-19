@@ -63,7 +63,6 @@ return packer.startup(function(use)
 			{ "nvim-treesitter/nvim-treesitter" },
 		},
 	})
-	use({ "glepnir/dashboard-nvim" })
 	use({ "karb94/neoscroll.nvim" })
 	use({
 		"folke/zen-mode.nvim",
@@ -224,6 +223,16 @@ return packer.startup(function(use)
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"antoinemadec/FixCursorHold.nvim",
+		},
+	})
+
+	-- Rust
+	use({
+		"simrat39/rust-tools.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"neovim/nvim-lspconfig",
+			"mfussenegger/nvim-dap",
 		},
 	})
 
