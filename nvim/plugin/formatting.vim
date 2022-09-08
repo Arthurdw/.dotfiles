@@ -6,13 +6,21 @@ endfun
 
 fun! FormatDocument()
     call TrimWhitespace()
-
-    " Special formatting commands
-    if &filetype =~ 'rust'
-        :%! rustfmt --edition 2021
+    if &filetype =~ 'qf' " Disable formatting for error analysis buffers
         return
     endif
-    lua vim.lsp.buf.formatting_sync()
+
+    if &filetype =~ 'sql' " Messes with my preffered way of sql formatting :(
+        return
+    endif
+
+    :Autoformat
+    " Special formatting commands
+    " if &filetype =~ 'rust'
+    "     :%! rustfmt --edition 2021
+    "     return
+    " endif
+    " lua vim.lsp.buf.formatting_sync()
 endfun
 
 augroup FMT

@@ -13,7 +13,10 @@ bufferline.setup {
         -- NOTE: this plugin is designed with this icon in mind,
         -- and so changing this is NOT recommended, this is intended
         -- as an escape hatch for people who cannot bear it for whatever reason
-        indicator_icon = "▎",
+        indicator = {
+            icon = "▎",
+            style = "icon"
+        },
         buffer_close_icon = "",
         -- buffer_close_icon = '',
         modified_icon = "●",
@@ -65,37 +68,37 @@ bufferline.setup {
         -- [focused and unfocused]. eg: { '|', '|' }
         separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
         enforce_regular_tabs = true,
-        always_show_bufferline = true
+        always_show_bufferline = true,
         -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
         --   -- add custom logic
         --   return buffer_a.modified > buffer_b.modified
         -- end
-    },
-    custom_areas = {
-        right = function()
-            local result = {}
-            local seve = vim.diagnostic.severity
-            local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
-            local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
-            local info = #vim.diagnostic.get(0, {severity = seve.INFO})
-            local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
+        custom_areas = {
+            right = function()
+                local result = {}
+                local seve = vim.diagnostic.severity
+                local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
+                local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
+                local info = #vim.diagnostic.get(0, {severity = seve.INFO})
+                local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
 
-            if error ~= 0 then
-                table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
-            end
+                if error ~= 0 then
+                    table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
+                end
 
-            if warning ~= 0 then
-                table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
-            end
+                if warning ~= 0 then
+                    table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
+                end
 
-            if hint ~= 0 then
-                table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
-            end
+                if hint ~= 0 then
+                    table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
+                end
 
-            if info ~= 0 then
-                table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+                if info ~= 0 then
+                    table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+                end
+                return result
             end
-            return result
-        end
+        }
     }
 }
