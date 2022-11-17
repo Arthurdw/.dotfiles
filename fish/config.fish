@@ -87,6 +87,9 @@ if status is-interactive
     _ref ll 'natls --long'
     _ref fire 'DISPLAY= cacafire'
     _ref pn pnpm # I'm very lazy, yes typing that extra 2 characters does make a difference.
+    _ref up 'paru -Syu'
+    _ref vpn 'sudo surfshark-vpn attack'
+    _ref vpns 'sudo surfshark-vpn down'
 
     # Config aliases
     set FISH_PATH ~/.config/fish/config.fish
@@ -107,9 +110,16 @@ if status is-interactive
     _ref vmmn 'sudo virsh net-start default'
     _ref vmmns 'sudo virsh net-destroy default'
 
+    _ref dkn 'sudo systemctl start docker'
+    _ref dkns 'sudo systemctl stop docker'
+
     # Xrandr shortcuts (output offs are because of my laptop which has a trackpad screen)
-    _ref scm 'xrandr --output HDMI-1-2 --auto --same-as eDP-1-1 && xrandr --output HDMI-1-1 --off'
-    _ref scsp 'xrandr --output HDMI-1-2 --auto --pos 1920x0 && xrandr --output HDMI-1-1 --off'
+    _ref scm 'xrandr --output HDMI-2 --auto --same-as eDP-1 && xrandr --output HDMI-1 --off'
+    _ref scsp 'xrandr --output HDMI-2 --auto --pos 1920x0 && xrandr --output HDMI-1 --off'
+
+    # For some reason my computer sometimes renames the HDMI's
+    _ref scmm 'xrandr --output HDMI-1-2 --auto --same-as eDP-1-1 && xrandr --output HDMI-1-1 --off'
+    _ref scspp 'xrandr --output HDMI-1-2 --auto --pos 1920x0 && xrandr --output HDMI-1-1 --off'
 
     # Set default editor to neovim
     set -x EDITOR nvim

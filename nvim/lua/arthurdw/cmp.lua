@@ -57,7 +57,6 @@ cmp.setup(
                 {name = "nvim_lsp_signature_help"},
                 {name = "cmp_tabnine"},
                 {name = "copilot"},
-                {name = "cmdline"},
                 {name = "buffer"},
                 {name = "path"}
             }
@@ -99,7 +98,6 @@ cmp.setup(
                     path = "[Path]",
                     crates = "[Crates.io]",
                     copilot = "[Copilot]",
-                    cmdline = "[Cmdline]",
                     cmp_tabnine = "[TabNine]",
                     nvim_lsp_signature_help = "[Spellcheck]"
                 })[entry.source.name]
