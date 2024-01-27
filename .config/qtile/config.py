@@ -41,6 +41,8 @@ terminal = guess_terminal()
 browser = "firefox-developer-edition"
 file_browser = "nemo"
 
+screen_amount = 2
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -127,7 +129,7 @@ layouts = [
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
+    layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
     # layout.MonadWide(),
@@ -150,12 +152,12 @@ wallpaper = wallpapers[randint(0, len(wallpapers) - 1)]
 
 subprocess.run(["cp", wallpaper, path.expanduser("~/.cache/current-wallpaper")])
 
-screens = [
+screen_amount = [
     *[
         Screen( 
             wallpaper=wallpaper,
             wallpaper_mode="fill"
-        ) for i in range(0, 2)
+        ) for i in range(0, screen_amount)
     ]
 ]
 
