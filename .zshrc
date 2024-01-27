@@ -70,6 +70,7 @@ update_all() {
 alias l="exa -laa"
 alias lg="lazygit"
 alias upd="update_all"
-alias zshr="source /home/arthur/.zshrc"
+alias zsr="source /home/arthur/.zshrc"
+alias v="nvim"
 
 source /usr/share/nvm/init-nvm.sh
