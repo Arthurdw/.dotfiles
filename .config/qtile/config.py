@@ -42,6 +42,8 @@ terminal = guess_terminal()
 browser = "firefox-developer-edition"
 file_browser = "nemo"
 app_launcher = "rofi -show drun"
+window_switcher = "rofi -show window"
+screenshot = "flameshot gui"
 
 screen_amount = 2
 
@@ -76,7 +78,7 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key( [mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), lazy.spawn("polybar -r"), desc="Reload the config"),
     Key([mod, "control"], "d", lazy.spawn(path.expanduser( "~/.screenlayout/default.sh")), desc="Reload displays"),
@@ -85,6 +87,10 @@ keys = [
     Key([mod], "b", lazy.spawn(browser), desc="Spawn browser"),
     Key([mod], "n", lazy.spawn(file_browser), desc="Spawn file browser"),
     Key([alt], "space", lazy.spawn(app_launcher), desc="Launch app launcher"),
+    Key([alt], "Tab", lazy.spawn(window_switcher), desc="Launch window switcher"),
+    Key([mod], "k", lazy.spawn(window_switcher), desc="Launch window switcher"),
+
+    Key([], "Print", lazy.spawn(screenshot), desc="Printscreen"),
 
     Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 0 sset Master 1- unmute")),
