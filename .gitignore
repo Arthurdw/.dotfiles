@@ -14,6 +14,7 @@
 !/.config/qtile/
 /.config/qtile/__pycache__
 !/.config/polybar/
+!/.config/rofi
 
 # Applications
 !/.config/mimeapps.list

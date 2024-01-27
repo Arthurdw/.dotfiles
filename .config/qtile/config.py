@@ -36,10 +36,12 @@ from libqtile.utils import guess_terminal
 environ["GTK_THEME"] = "Adwaita:dark"
 
 mod = "mod4"
+alt = "mod1"
 terminal = guess_terminal()
 
 browser = "firefox-developer-edition"
 file_browser = "nemo"
+app_launcher = "rofi -show drun"
 
 screen_amount = 2
 
@@ -92,6 +94,7 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "b", lazy.spawn(browser), desc="Spawn browser"),
     Key([mod], "n", lazy.spawn(file_browser), desc="Spawn file browser"),
+    Key([alt], "space", lazy.spawn(app_launcher), desc="Launch app launcher"),
 
     Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 0 sset Master 1- unmute")),
