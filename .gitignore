@@ -1,0 +1,21 @@
+# ignore everything except specific files/folders
+*
+!.gitignore
+
+# General system
+!.zshrc
+!.zprofile
+!.xinitrc
+!./.screenlayout/
+
+# Window manager
+./.config/qtile/__pycache__
+!./.config/qtile/
+!./.config/polybar/
+
+
+# Applications
+!./.config/mimeapps.list
+!./.config/nvim/
+!./.config/kitty/
+
