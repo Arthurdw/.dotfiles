@@ -44,6 +44,7 @@ file_browser = "nemo"
 app_launcher = "rofi -show drun"
 window_switcher = "rofi -show window"
 screenshot = "flameshot gui"
+suspend = "systemctl suspend"
 
 screen_amount = 2
 
@@ -89,6 +90,7 @@ keys = [
     Key([alt], "space", lazy.spawn(app_launcher), desc="Launch app launcher"),
     Key([alt], "Tab", lazy.spawn(window_switcher), desc="Launch window switcher"),
     Key([mod], "k", lazy.spawn(window_switcher), desc="Launch window switcher"),
+    Key([mod], "l", lazy.spawn(suspend), desc="Suspend"),
 
     Key([], "Print", lazy.spawn(screenshot), desc="Printscreen"),
 
