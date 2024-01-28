@@ -89,8 +89,8 @@ keys = [
     Key([mod], "n", lazy.spawn(file_browser), desc="Spawn file browser"),
     Key([alt], "space", lazy.spawn(app_launcher), desc="Launch app launcher"),
     Key([alt], "Tab", lazy.spawn(window_switcher), desc="Launch window switcher"),
-    Key([mod], "k", lazy.spawn(window_switcher), desc="Launch window switcher"),
-    Key([mod], "l", lazy.spawn(suspend), desc="Suspend"),
+    Key([mod], "u", lazy.spawn(window_switcher), desc="Launch window switcher"),
+    Key([mod], "p", lazy.spawn(suspend), desc="Suspend"),
 
     Key([], "Print", lazy.spawn(screenshot), desc="Printscreen"),
 
@@ -213,4 +213,6 @@ wmname = "LG3D"
 @hook.subscribe.startup_once
 def autostart():
     script = path.expanduser("~/.config/qtile/autostart.sh")
-    subprocess.run([script])
+    #subprocess.run([script])
+    subprocess.Popen([script], stderr=subprocess.DEVNULL)
+
