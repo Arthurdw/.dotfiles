@@ -4,6 +4,8 @@
 !/.config/
 /.config/*
 
+!README.md
+
 # General system
 !.zshrc
 !.zprofile
