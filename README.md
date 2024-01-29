@@ -52,6 +52,7 @@ noto-fonts-extra
 nvidia-dkms
 nvm
 paru
+picom
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -83,5 +84,5 @@ xorg-server
 xorg-xinit
 xorg-xrandr
 zram-generator
-z
+zsh
 ```

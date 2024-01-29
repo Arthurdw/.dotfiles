@@ -75,5 +75,6 @@ alias lg="lazygit"
 alias upd="update_all"
 alias zsr="source $HOME/.zshrc"
 alias v="nvim"
+alias ssh="kitty +kitten ssh"
 
 source /usr/share/nvm/init-nvm.sh
