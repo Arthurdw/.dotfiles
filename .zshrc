@@ -57,7 +57,7 @@ fi
 
 export ARCHFLAGS="-arch x86_64"
 export RUSTC_WRAPPER=~/.cargo/bin/sccache
-export PATH="$PATH:/home/arthur/.cargo/bin/"
+export PATH="$PATH:$HOME/.cargo/bin/"
 
 update_all() {
     export TMPFILE="$(mktemp)"
@@ -73,7 +73,7 @@ update_all() {
 alias l="exa -laa"
 alias lg="lazygit"
 alias upd="update_all"
-alias zsr="source /home/arthur/.zshrc"
+alias zsr="source $HOME/.zshrc"
 alias v="nvim"
 
 source /usr/share/nvm/init-nvm.sh
