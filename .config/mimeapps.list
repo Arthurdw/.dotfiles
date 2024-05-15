@@ -32,3 +32,5 @@ x-scheme-handler/https=firefoxdeveloperedition.desktop;
 x-scheme-handler/kitty=kitty-open.desktop;
 x-scheme-handler/ssh=kitty-open.desktop;
 x-scheme-handler/tg=org.telegram.desktop.desktop;
+x-scheme-handler/postman=Postman.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop

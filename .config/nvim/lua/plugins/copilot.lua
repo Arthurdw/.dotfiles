@@ -41,11 +41,11 @@ local options = {
 }
 
 return {
-  {
-    "zbirenbaum/copilot.lua",
-    lazy = false,
-    config = function(_, _)
-      require("copilot").setup(options)
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   lazy = false,
+  --   config = function(_, _)
+  --     require("copilot").setup(options)
+  --   end,
+  -- },
 }
