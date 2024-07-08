@@ -31,14 +31,14 @@ from os import environ, path
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+from typing import Optional
 
 environ["GTK_THEME"] = "Adwaita:dark"
 
 mod = "mod4"
 alt = "mod1"
-terminal = guess_terminal()
 
+terminal = "kitty"
 browser = "firefox-developer-edition"
 file_browser = "nemo"
 app_launcher = "rofi -show drun"
@@ -47,6 +47,35 @@ screenshot = "flameshot gui"
 suspend = "systemctl suspend"
 
 screen_amount = 2
+
+_current_wallpaper: Optional[int] = None
+screens = []
+
+
+def cycle_wallpaper(*_):
+    global screens, _current_wallpaper
+
+    wallpapers = glob(path.expanduser("~/Pictures/wallpapers/*"))
+
+    if _current_wallpaper is None:
+        _current_wallpaper = randint(0, len(wallpapers) - 1)
+    else:
+        _current_wallpaper = min(_current_wallpaper + 1, len(wallpapers) - 1)
+
+    wallpaper = wallpapers[_current_wallpaper]
+
+    subprocess.run(["cp", wallpaper, path.expanduser("~/.cache/current-wallpaper")])
+
+    screens = [
+        *[
+            Screen(wallpaper=wallpaper, wallpaper_mode="fill")
+            for i in range(0, screen_amount)
+        ]
+    ]
+
+
+cycle_wallpaper()
+
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -59,14 +88,23 @@ keys = [
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key(
+        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+    ),
+    Key(
+        [mod, "shift"],
+        "l",
+        lazy.layout.shuffle_right(),
+        desc="Move window to the right",
+    ),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key(
+        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
+    ),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod, "shift"], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
@@ -74,15 +112,47 @@ keys = [
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key( [mod, "shift"], "Return", lazy.layout.toggle_split(), desc="Toggle between split and unsplit sides of stack"),
+    Key(
+        [mod, "shift"],
+        "Return",
+        lazy.layout.toggle_split(),
+        desc="Toggle between split and unsplit sides of stack",
+    ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), lazy.spawn("polybar -r"), desc="Reload the config"),
-    Key([mod, "control"], "d", lazy.spawn(path.expanduser( "~/.screenlayout/default.sh")), desc="Reload displays"),
+    Key(
+        [mod],
+        "f",
+        lazy.window.toggle_fullscreen(),
+        desc="Toggle fullscreen on the focused window",
+    ),
+    Key(
+        [mod],
+        "t",
+        lazy.window.toggle_floating(),
+        desc="Toggle floating on the focused window",
+    ),
+    Key(
+        [mod, "control"],
+        "r",
+        lazy.reload_config(),
+        lazy.spawn("polybar -r"),
+        desc="Reload the config",
+    ),
+    Key(
+        [mod, "control"],
+        "d",
+        lazy.spawn(path.expanduser("~/.screenlayout/default.sh")),
+        desc="Reload displays",
+    ),
+    Key(
+        [mod, "control"],
+        "w",
+        lazy.function(cycle_wallpaper),
+        desc="Cycle wallpapers",
+    ),
     Key([mod, "control"], "q", lazy.pywalshutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "b", lazy.spawn(browser), desc="Spawn browser"),
@@ -91,12 +161,16 @@ keys = [
     Key([alt], "Tab", lazy.spawn(window_switcher), desc="Launch window switcher"),
     Key([mod], "u", lazy.spawn(window_switcher), desc="Launch window switcher"),
     Key([mod], "p", lazy.spawn(suspend), desc="Suspend"),
-
     Key([], "Print", lazy.spawn(screenshot), desc="Printscreen"),
-
     Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 0 sset Master 1- unmute")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 0 sset Master 1+ unmute"))
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 0 sset Master 1+ unmute")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("light -A 20")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("light -U 20")),
+    Key(["shift"], "XF86MonBrightnessUp", lazy.spawn("light -A 10")),
+    Key(["shift"], "XF86MonBrightnessDown", lazy.spawn("light -U 10")),
+    Key([mod, "shift"], "XF86MonBrightnessUp", lazy.spawn("light -A 1")),
+    Key([mod, "shift"], "XF86MonBrightnessDown", lazy.spawn("light -U 1")),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -116,8 +190,7 @@ for i in groups:
                 [mod, "shift"],
                 i.name,
                 lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(
-                    i.name),
+                desc="Switch to & move focused window to group {}".format(i.name),
             ),
             # Or, use below if you prefer not to switch to that group.
             # # mod1 + shift + letter of group = move focused window to group
@@ -149,25 +222,17 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-wallpapers = glob(path.expanduser("~/Pictures/wallpapers/*"))
-wallpaper = wallpapers[randint(0, len(wallpapers) - 1)]
-
-subprocess.run(
-    ["cp", wallpaper, path.expanduser("~/.cache/current-wallpaper")])
-
-screens = [
-    *[
-        Screen(
-            wallpaper=wallpaper,
-            wallpaper_mode="fill"
-        ) for i in range(0, screen_amount)
-    ]
-]
-
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag(
+        [mod],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+    ),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
@@ -210,9 +275,9 @@ wl_input_rules = None
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
 
+
 @hook.subscribe.startup_once
 def autostart():
     script = path.expanduser("~/.config/qtile/autostart.sh")
-    #subprocess.run([script])
+    # subprocess.run([script])
     subprocess.Popen([script], stderr=subprocess.DEVNULL)
-
