@@ -1,0 +1,16 @@
+# ignore everything except specific files/folders
+/*
+!.gitignore
+!/.config/
+/.config/*
+
+!README.md
+
+# General system
+!.zshrc
+!.zprofile
+!.xinitrc
+
+# Applications
+!/.config/mimeapps.list
+!/.config/nvim/
