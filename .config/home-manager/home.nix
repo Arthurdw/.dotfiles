@@ -1,7 +1,13 @@
+# TODO: multiple files
+# TODO: install teamviewer
+
+
 { config, pkgs, ... }: {
-  home.username = "arthur";
-  home.homeDirectory = "/home/arthur";
-  home.stateVersion = "24.11";
+  home = {
+    username = "arthur";
+    homeDirectory = "/home/arthur";
+    stateVersion = "24.11";
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
