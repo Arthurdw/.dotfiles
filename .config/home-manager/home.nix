@@ -31,7 +31,8 @@
     twingate
     dig
     blueman
-    oh-my-zsh
+    terraform
+    spotify
 
     # Rust
     rustup
@@ -40,6 +41,7 @@
     cargo-watch
 
     # zsh
+    oh-my-zsh
     zsh-you-should-use
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -103,6 +105,7 @@
         "rust"
         "kubectl"
         "helm"
+        "terraform"
       ];
     };
 
