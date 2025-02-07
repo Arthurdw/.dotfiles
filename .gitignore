@@ -4,4 +4,8 @@
 !/.config/
 /.config/*
 !README.md
-!/.config/home-manager
+!/.config/home-manager/
+!/.config/nvim/
+!/.config/hypr/
+!/.config/kitty/
+!/.config/dunst/
