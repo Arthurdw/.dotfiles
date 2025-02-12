@@ -44,6 +44,7 @@ in
     terraform
     spotify
     qalculate-qt
+    python313
 
     # Rust
     rustup
