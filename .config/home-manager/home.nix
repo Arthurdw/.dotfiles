@@ -1,16 +1,26 @@
-# TODO: multiple files
 # TODO: install teamviewer
 
-
-{ config, pkgs, ... }: {
+{ pkgs, ... }: 
+let
+  #Returns a list of "dir/filename" for all files in a dir
+  filesIn = dir: (map (fname: dir + "/${fname}")
+                      (builtins.attrNames (builtins.readDir dir)));
+in
+{
   home = {
     username = "arthur";
     homeDirectory = "/home/arthur";
     stateVersion = "24.11";
   };
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate  = (_: true);
+  };
+
+  imports = []
+    ++ (filesIn ./apps);
+
   home.packages = with pkgs; [
     unzip
     brave
@@ -33,25 +43,22 @@
     blueman
     terraform
     spotify
+    qalculate-qt
 
     # Rust
     rustup
     sccache
     cargo-nextest
     cargo-watch
+    cargo-tauri
 
-    # zsh
-    oh-my-zsh
-    zsh-you-should-use
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+    # General development
+    marksman
+    postman
   ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate  = (_: true);
-  };
 
+  programs.home-manager.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -67,64 +74,4 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
-
-  programs.home-manager.enable = true;
-
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      hsw = "home-manager switch";
-      rebuild = "sudo nixos-rebuild switch";
-      upgrade = "sudo nix-channel --update && sudo nixos-rebuild switch --upgrade";
-      v = "nvim";
-      vi = "nvim";
-      vim = "nvim";
-      lg = "lazygit";
-      rt = "cargo nextest run --all";
-    };
-
-    sessionVariables = {
-      RUSTC_WRAPPER = pkgs.lib.getExe pkgs.sccache;
-      PATH = "$PATH:$HOME/.cargo/bin";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      theme = "refined";
-      plugins = [
-        "git"
-        "z"
-        "ansible"
-        "vagrant"
-        "sudo"
-        "rust"
-        "kubectl"
-        "helm"
-        "terraform"
-      ];
-    };
-
-    syntaxHighlighting.enable = true;
-    autosuggestion.enable = true;
-
-    plugins = [
-      {
-        name = pkgs.zsh-you-should-use.pname;
-        src = pkgs.zsh-you-should-use.src;
-      }
-    ];
-  };
-
-  programs.git = {
-    enable = true;
-    userEmail = "dev@arthurdw.com";
-    userName = "Arthurdw";
-  };
-
-  programs.lazygit.enable = true;
 }
