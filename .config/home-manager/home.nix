@@ -30,7 +30,6 @@ in
     grim
     gnumake
     nodejs
-    pnpm
     fzf
     ripgrep
     fd
@@ -45,6 +44,7 @@ in
     spotify
     qalculate-qt
     python313
+    pgcli
 
     # Rust
     rustup
@@ -52,6 +52,8 @@ in
     cargo-nextest
     cargo-watch
     cargo-tauri
+    cargo-make
+    sqlx-cli
 
     # General development
     marksman
