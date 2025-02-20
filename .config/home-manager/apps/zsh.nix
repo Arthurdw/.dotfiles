@@ -36,6 +36,7 @@
         "kubectl"
         "helm"
         "terraform"
+        "doctl"
       ];
     };
 

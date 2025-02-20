@@ -18,6 +18,11 @@ in
     allowUnfreePredicate  = (_: true);
   };
 
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
   imports = []
     ++ (filesIn ./apps);
 
@@ -29,12 +34,10 @@ in
     stremio
     grim
     gnumake
-    nodejs
     fzf
     ripgrep
     fd
     signal-desktop
-    racket
     vlc
     loupe
     twingate
@@ -43,21 +46,17 @@ in
     terraform
     spotify
     qalculate-qt
-    python313
+    libqalculate
     pgcli
+    zoom-us
 
-    # Rust
-    rustup
-    sccache
-    cargo-nextest
-    cargo-watch
-    cargo-tauri
-    cargo-make
-    sqlx-cli
+    python313
+    python313Packages.keyring
 
     # General development
     marksman
     postman
+    jq
   ];
 
 
