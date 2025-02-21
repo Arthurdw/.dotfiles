@@ -52,9 +52,12 @@ in
     zoom-us
     wallust
     mission-center
+    gnome-disk-utility
 
     python313
     python313Packages.keyring
+
+    bottles
 
     # General development
     marksman

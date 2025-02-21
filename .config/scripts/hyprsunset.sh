@@ -13,6 +13,9 @@ while true; do
       temp=2000
     fi
     hyprsunset -t "$temp" &
+  elif [ "$hour" -ge 23 ] || [ "$hour" -lt 6 ]; then
+    temp=2000
+    hyprsunset -t "$temp" &
   fi
 
   sleep 5 # We sleep here to give the hyprsunset time to do its thing
