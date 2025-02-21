@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   systemd.user.services.hyprsunset = {
     Unit = {
       Description = "Adjust Hyprsunset Temperature Gradually";
@@ -6,10 +6,11 @@
     };
     Service = {
       Type = "simple";
-      ExecStart = "/home/%u/.config/scripts/hyprsunset.sh";
+      ExecStart = "${pkgs.bash}/bin/bash /home/%u/.config/scripts/hyprsunset.sh";
       Environment = [
         "DISPLAY=:0"
         "XDG_RUNTIME_DIR=/run/user/%U"
+        "PATH=/run/current-system/sw/bin"
       ];
     };
     Install.WantedBy = [ "default.target" ];
