@@ -24,7 +24,8 @@ in
   };
 
   imports = []
-    ++ (filesIn ./apps);
+    ++ (filesIn ./apps)
+    ++ (filesIn ./services);
 
   home.packages = with pkgs; [
     unzip
@@ -49,6 +50,8 @@ in
     libqalculate
     pgcli
     zoom-us
+    wallust
+    mission-center
 
     python313
     python313Packages.keyring
