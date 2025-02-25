@@ -53,6 +53,7 @@ in
     wallust
     mission-center
     gnome-disk-utility
+    btop
 
     python313
     python313Packages.keyring
