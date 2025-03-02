@@ -1,12 +1,12 @@
 # TODO: install teamviewer
 
-{ pkgs, ... }: 
+{ pkgs, ... }:
 let
   #Returns a list of "dir/filename" for all files in a dir
-  filesIn = dir: (map (fname: dir + "/${fname}")
-                      (builtins.attrNames (builtins.readDir dir)));
-in
-{
+  filesIn = dir:
+    (map (fname: dir + "/${fname}")
+      (builtins.attrNames (builtins.readDir dir)));
+in {
   home = {
     username = "arthur";
     homeDirectory = "/home/arthur";
@@ -15,7 +15,7 @@ in
 
   nixpkgs.config = {
     allowUnfree = true;
-    allowUnfreePredicate  = (_: true);
+    allowUnfreePredicate = (_: true);
   };
 
   nix = {
@@ -23,9 +23,7 @@ in
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
 
-  imports = []
-    ++ (filesIn ./apps)
-    ++ (filesIn ./services);
+  imports = [ ] ++ (filesIn ./apps) ++ (filesIn ./services);
 
   home.packages = with pkgs; [
     unzip
@@ -54,20 +52,38 @@ in
     mission-center
     gnome-disk-utility
     btop
+    gimp
+    openscad
+    zathura
+    htop
+    tree-sitter
+    packer
+    prettierd
+    sqlfluff
+    go
+    openjdk17-bootstrap
 
     python313
+    python313Packages.pip
     python313Packages.keyring
+
+    php84
+    php84Packages.composer
 
     bottles
 
     # General development
     marksman
-    postman
+    insomnia
     jq
   ];
 
-
   programs.home-manager.enable = true;
+
+  services.home-manager.autoUpgrade = {
+    enable = true;
+    frequency = "daily";
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

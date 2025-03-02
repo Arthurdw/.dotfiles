@@ -7,6 +7,12 @@
     viAlias = true;
     vimAlias = true;
     extraLuaPackages = ps: [ ps.magick ];
-    extraPackages = [ pkgs.imagemagick ];
+    extraPackages = with pkgs; [ 
+      imagemagick
+      vimPlugins.vim-markdown-toc
+      vimPlugins.rocks-nvim
+      markdownlint-cli2
+      nixfmt-classic
+    ];
   };
 }

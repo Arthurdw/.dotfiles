@@ -13,6 +13,7 @@
       hupgrade = "nix-channel --update && home-manager switch";
       rebuild = "sudo nixos-rebuild switch";
       upgrade = "sudo nix-channel --update && sudo nixos-rebuild switch --upgrade";
+      watch = "watch ";
       v = "nvim";
       lg = "lazygit";
       rt = "cargo nextest run --all";
