@@ -62,6 +62,7 @@ in {
     sqlfluff
     go
     openjdk17-bootstrap
+    libclang
 
     python313
     python313Packages.pip
