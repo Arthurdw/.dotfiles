@@ -12,7 +12,8 @@
       hsw = "home-manager switch";
       hupgrade = "nix-channel --update && home-manager switch";
       rebuild = "sudo nixos-rebuild switch";
-      upgrade = "sudo nix-channel --update && sudo nixos-rebuild switch --upgrade";
+      upgrade =
+        "sudo nix-channel --update && sudo nixos-rebuild switch --upgrade";
       watch = "watch ";
       v = "nvim";
       lg = "lazygit";
@@ -22,6 +23,7 @@
     sessionVariables = {
       RUSTC_WRAPPER = pkgs.lib.getExe pkgs.sccache;
       PATH = "$PATH:$HOME/.cargo/bin";
+      TERM = "xterm-256color";
     };
 
     oh-my-zsh = {
@@ -44,11 +46,9 @@
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
 
-    plugins = [
-      {
-        name = pkgs.zsh-you-should-use.pname;
-        src = pkgs.zsh-you-should-use.src;
-      }
-    ];
+    plugins = [{
+      name = pkgs.zsh-you-should-use.pname;
+      src = pkgs.zsh-you-should-use.src;
+    }];
   };
 }

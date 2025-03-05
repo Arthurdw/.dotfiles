@@ -1,6 +1,1 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    kubectl
-    doctl
-  ];
-}
+{ pkgs, ... }: { home.packages = with pkgs; [ kubectl kubetail doctl ]; }

@@ -53,6 +53,7 @@ in {
     gnome-disk-utility
     btop
     gimp
+    freecad
     openscad
     zathura
     htop
@@ -63,6 +64,9 @@ in {
     go
     openjdk17-bootstrap
     libclang
+    prusa-slicer
+    wget
+    beeper
 
     python313
     python313Packages.pip

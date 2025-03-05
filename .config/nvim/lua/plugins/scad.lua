@@ -5,6 +5,14 @@ return {
       vim.g.openscad_load_snippets = true
       require("openscad")
 
+      -- Set commentstring for OpenSCAD
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "openscad",
+        callback = function()
+          vim.bo.commentstring = "// %s"
+        end,
+      })
+
       -- Keybinding to run OpenSCAD
       vim.keymap.set(
         "n",
@@ -21,7 +29,7 @@ return {
         command = "clang-format",
         prepend_args = {
           "--style",
-          "{BasedOnStyle: Google, BreakBeforeBraces: Attach, AllowShortIfStatementsOnASingleLine: false, AllowShortLoopsOnASingleLine: false, IndentWidth: 2, ColumnLimit: 80}",
+          "{BasedOnStyle: Google, BreakBeforeBraces: Attach, IndentWidth: 4, ColumnLimit: 80}",
         },
       }
     end,
