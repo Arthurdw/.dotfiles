@@ -18,12 +18,7 @@
       v = "nvim";
       lg = "lazygit";
       rt = "cargo nextest run --all";
-    };
-
-    sessionVariables = {
-      RUSTC_WRAPPER = pkgs.lib.getExe pkgs.sccache;
-      PATH = "$PATH:$HOME/.cargo/bin";
-      TERM = "xterm-256color";
+      ssh = "kitten ssh";
     };
 
     oh-my-zsh = {
@@ -40,6 +35,7 @@
         "helm"
         "terraform"
         "doctl"
+        "direnv"
       ];
     };
 
