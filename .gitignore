@@ -4,6 +4,7 @@
 !/.config/
 /.config/*
 !README.md
+!configuration.nix
 !/.config/home-manager/
 !/.config/nvim/
 !/.config/hypr/
