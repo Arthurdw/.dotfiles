@@ -67,6 +67,9 @@ in {
     prusa-slicer
     wget
     beeper
+    cachix
+    davinci-resolve
+    qbittorrent
 
     python313
     python313Packages.pip
