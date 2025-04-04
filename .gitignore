@@ -4,5 +4,6 @@
 !/.config/
 /.config/*
 !README.md
+!.zshrc
 !/.config/nvim/
 !/.config/kitty/
