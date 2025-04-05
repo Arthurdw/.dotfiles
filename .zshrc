@@ -77,6 +77,11 @@ plugins=(
   vagrant
   sudo
   rust
+  kubectl
+  helm
+  terraform
+  doctl
+  direnv
   zsh-syntax-highlighting
   zsh-autosuggestions
   you-should-use
@@ -126,9 +131,16 @@ alias rt="cargo nextest r --all"
 
 alias batterylog="/opt/batterylog/batterylog.py"
 
+alias kcns='function _kchns(){ kubectl config set-context $(kubectl config current-context) --namespace="$1"; }; _kchns'
+
 export PATH=$PATH:/home/arthur/.cargo/bin/
 
 unset DOCKER_HOST
 
-alias watchh='watch '
+alias watch='watch '
+
 autoload -U compinit; compinit
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
