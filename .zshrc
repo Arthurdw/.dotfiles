@@ -127,13 +127,15 @@ alias lg="lazygit"
 
 alias ssh="kitten ssh"
 
-alias rt="cargo nextest r --all"
+alias rt="cargo nextest r --all --all-features"
+alias wrt="cargo watch -- cargo nextest r --all --all-features"
 
 alias batterylog="/opt/batterylog/batterylog.py"
 
 alias kcns='function _kchns(){ kubectl config set-context $(kubectl config current-context) --namespace="$1"; }; _kchns'
 
-export PATH=$PATH:/home/arthur/.cargo/bin/
+export PATH=$PATH:$HOME/.cargo/bin/:$HOME/go/bin:$HOME/.local/bin
+export RUSTC_WRAPPER=$(which sccache)
 
 unset DOCKER_HOST
 
@@ -144,3 +146,5 @@ autoload -U compinit; compinit
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export PATH=$PATH:/home/arthur/.spicetify
