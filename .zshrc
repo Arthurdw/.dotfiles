@@ -134,7 +134,7 @@ alias batterylog="/opt/batterylog/batterylog.py"
 
 alias kcns='function _kchns(){ kubectl config set-context $(kubectl config current-context) --namespace="$1"; }; _kchns'
 
-export PATH=$PATH:$HOME/.cargo/bin/:$HOME/go/bin:$HOME/.local/bin
+export PATH=$PATH:$HOME/.cargo/bin/:$HOME/go/bin:$HOME/.local/bin:$HOME/.yarn/bin
 export RUSTC_WRAPPER=$(which sccache)
 
 unset DOCKER_HOST
