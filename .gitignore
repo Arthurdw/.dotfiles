@@ -5,5 +5,10 @@
 /.config/*
 !README.md
 !.zshrc
+!.gitconfig
 !/.config/nvim/
 !/.config/kitty/
+!/.config/hypr/
+!/.config/dunst/
+!/.config/scripts/
+

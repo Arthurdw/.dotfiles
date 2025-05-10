@@ -1,0 +1,6 @@
+[user]
+	name = Arthurdw
+	email = dev@arthurdw.com
+	signingkey = 34BDE788D3999EED
+[commit]
+	gpgsign = true
