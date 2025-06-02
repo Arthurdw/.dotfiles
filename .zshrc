@@ -87,6 +87,7 @@ plugins=(
   you-should-use
   kubectl
   helm
+  yarn
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -148,3 +149,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export PATH=$PATH:/home/arthur/.spicetify
 export GPG_TTY=$(tty)
+export LIBCLANG_PATH=/usr/lib
+
+if [ -e /home/arthur/.nix-profile/etc/profile.d/nix.sh ]; then . /home/arthur/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
