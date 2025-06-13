@@ -136,7 +136,7 @@ alias batterylog="/opt/batterylog/batterylog.py"
 alias kcns='function _kchns(){ kubectl config set-context $(kubectl config current-context) --namespace="$1"; }; _kchns'
 
 export PATH=$PATH:$HOME/.cargo/bin/:$HOME/go/bin:$HOME/.local/bin:$HOME/.yarn/bin
-export RUSTC_WRAPPER=$(which sccache)
+# export RUSTC_WRAPPER=$(which sccache)
 
 unset DOCKER_HOST
 
@@ -150,5 +150,15 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export PATH=$PATH:/home/arthur/.spicetify
 export GPG_TTY=$(tty)
 export LIBCLANG_PATH=/usr/lib
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 if [ -e /home/arthur/.nix-profile/etc/profile.d/nix.sh ]; then . /home/arthur/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+alias ua-drop-caches='sudo paccache -rk3; paru -Sc --aur --noconfirm'
+alias ua-update-all='export TMPFILE="$(mktemp)"; \
+    sudo true; \
+    rate-mirrors --save=$TMPFILE arch --max-delay=21600 \
+      && sudo mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup \
+      && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
+      && ua-drop-caches \
+      && paru -Syyu --noconfirm'
