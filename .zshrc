@@ -142,6 +142,8 @@ unset DOCKER_HOST
 
 alias watch='watch '
 
+export EDITOR="nvim"
+
 autoload -U compinit; compinit
 
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -162,3 +164,6 @@ alias ua-update-all='export TMPFILE="$(mktemp)"; \
       && sudo mv $TMPFILE /etc/pacman.d/mirrorlist \
       && ua-drop-caches \
       && paru -Syyu --noconfirm'
+
+export XDG_CURRENT_DESKTOP=Hyprland
+export PATH=~/.npm-global/bin:$PATH
