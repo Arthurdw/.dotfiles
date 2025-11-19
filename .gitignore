@@ -12,4 +12,5 @@
 !/.config/dunst/
 !/.config/waybar/
 !/.config/scripts/
+!/.config/nix/
 

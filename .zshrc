@@ -134,6 +134,7 @@ alias wrt="cargo watch -- cargo nextest r --all --all-features"
 alias batterylog="/opt/batterylog/batterylog.py"
 
 alias kcns='function _kchns(){ kubectl config set-context $(kubectl config current-context) --namespace="$1"; }; _kchns'
+alias nix-cleanup='nix-collect-garbage -d && nix-store --optimise'
 
 export PATH=$PATH:$HOME/.cargo/bin/:$HOME/go/bin:$HOME/.local/bin:$HOME/.yarn/bin
 # export RUSTC_WRAPPER=$(which sccache)
@@ -167,3 +168,6 @@ alias ua-update-all='export TMPFILE="$(mktemp)"; \
 
 export XDG_CURRENT_DESKTOP=Hyprland
 export PATH=~/.npm-global/bin:$PATH
+
+
+. /usr/share/nvm/init-nvm.sh
