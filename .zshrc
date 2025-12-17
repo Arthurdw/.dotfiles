@@ -131,7 +131,7 @@ alias ssh="kitten ssh"
 alias rt="cargo nextest r --all --all-features"
 alias wrt="cargo watch -- cargo nextest r --all --all-features"
 
-alias batterylog="/opt/batterylog/batterylog.py"
+alias fd="fdfind"
 
 alias kcns='function _kchns(){ kubectl config set-context $(kubectl config current-context) --namespace="$1"; }; _kchns'
 alias nix-cleanup='nix-collect-garbage -d && nix-store --optimise'
